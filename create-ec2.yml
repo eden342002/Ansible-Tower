@@ -1,5 +1,5 @@
 ---
-  hosts: localhost
+- hosts: localhost
   connection: local
   gather_facts: False
 
@@ -15,7 +15,7 @@
       instance_role: "{{ lookup('aws_ssm', '/JJTech/{{ team }}/{{ instance_role }}', region='us-east-1') }}"
       wait: true
       volumes:
-          device_name: /dev/xvda
+        - device_name: /dev/xvda
           ebs:
             volume_type: gp2
             volume_size: "{{ root_volume_size }}"
